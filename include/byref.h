@@ -50,7 +50,13 @@ public:
     /**
      *  Destructor
      */
+#if defined (__GNUC__)
+  #if __GNUC__ == 4 && __GNUC_MINOR__ == 7
+    virtual ~ByRef() throw() {}
+  #endif
+#else
     virtual ~ByRef() {}
+#endif
 };
 
 /**
